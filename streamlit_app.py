@@ -1,5 +1,3 @@
-import altair as alt
-import numpy as np
 import pandas as pd
 import streamlit as st
 
@@ -27,10 +25,8 @@ st.markdown(f"Your favorite command is **{favorite_command}** 🎈")
 data_df = pd.DataFrame(
     {
         "apps": [
-            "https://storage.googleapis.com/s4a-prod-share-preview/default/st_app_screenshot_image/5435b8cb-6c6c-490b-9608-799b543655d3/Home_Page.png",
-            "https://storage.googleapis.com/s4a-prod-share-preview/default/st_app_screenshot_image/ef9a7627-13f2-47e5-8f65-3f69bb38a5c2/Home_Page.png",
-            "https://storage.googleapis.com/s4a-prod-share-preview/default/st_app_screenshot_image/31b99099-8eae-4ff8-aa89-042895ed3843/Home_Page.png",
-            "https://storage.googleapis.com/s4a-prod-share-preview/default/st_app_screenshot_image/6a399b09-241e-4ae7-a31f-7640dc1d181e/Home_Page.png",
+            "https://drive.google.com/uc?export=view&id=1rcmdKL8iGM5UoF7-qOcvkiiSVxvbrEoy",
+            "https://drive.google.com/uc?export=view&id=1E0iFNctXsa5GK1R9hd2XZNfYRVWFprYX",
         ],
     }
 )
@@ -39,48 +35,11 @@ st.data_editor(
     data_df,
     column_config={
         "apps": st.column_config.ImageColumn(
-            "Preview Image", help="Streamlit app preview screenshots"
+            "Preview Image", help="Disease and vaccine images"
         )
     },
     hide_index=True,
 )
 
-# Spiral plot example
-def generate_spiral_data(num_points, num_turns):
-    """Generate data for a spiral with the given number of points and turns."""
-    indices = np.linspace(0, 1, num_points)
-    theta = 2 * np.pi * num_turns * indices
-    radius = indices
-
-    x = radius * np.cos(theta)
-    y = radius * np.sin(theta)
-    rand = np.random.randn(num_points)
-
-    df = pd.DataFrame({
-        "x": x,
-        "y": y,
-        "idx": indices,
-        "rand": rand,
-    })
-    
-    return df
-
-def create_spiral_chart(df):
-    """Create an Altair chart for the spiral data."""
-    chart = alt.Chart(df, height=700, width=700).mark_point(filled=True).encode(
-        x=alt.X("x", axis=None),
-        y=alt.Y("y", axis=None),
-        color=alt.Color("idx", legend=None, scale=alt.Scale()),
-        size=alt.Size("rand", legend=None, scale=alt.Scale(range=[1, 150])),
-    )
-    return chart
-
-num_points = st.slider("Number of points in spiral", 1, 10000, 1100)
-num_turns = st.slider("Number of turns in spiral", 1, 300, 31)
-
-spiral_data = generate_spiral_data(num_points, num_turns)
-spiral_chart = create_spiral_chart(spiral_data)
-
-st.altair_chart(spiral_chart)
 
 
