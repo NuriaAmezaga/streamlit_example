@@ -8,6 +8,20 @@ st.title("Diseases and Vaccine recomendation app")
 
 This is a web for Diseases and Vaccine recomendation where all the data is tacked from WHO.
 
+"""
+
+df = pd.DataFrame(
+    [
+       {"command": "st.selectbox", "rating": 4, "is_widget": True},
+       {"command": "st.balloons", "rating": 5, "is_widget": False},
+       {"command": "st.time_input", "rating": 3, "is_widget": True},
+   ]
+)
+edited_df = st.data_editor(df)
+
+favorite_command = edited_df.loc[edited_df["rating"].idxmax()]["command"]
+st.markdown(f"Your favorite command is **{favorite_command}** 🎈")
+
 
 """
 
