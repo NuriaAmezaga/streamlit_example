@@ -8,11 +8,12 @@ st.markdown("""
 This is a web app for Diseases and Vaccine recommendation where all the data is taken from WHO.
 """)
 
- 
-df = pd.read_csv("sp.csv")
-st.line_chart(df)
-
-
+# Load and display the CSV file
+try:
+    df = pd.read_csv("sp.csv")
+    st.line_chart(df)
+except FileNotFoundError:
+    st.error("The file 'sp.csv' was not found. Please ensure it is in the correct directory.")
 
 # Data editor example
 df_commands = pd.DataFrame(
@@ -37,12 +38,17 @@ data_df = pd.DataFrame(
     }
 )
 
-st.data_editor(
-    data_df,
-    column_config={
-        "apps": st.column_config.ImageColumn(
-            "Preview Image", help="Disease and vaccine images"
-        )
-    },
-    hide_index=True,
-)
+# Check Streamlit version for column_config
+if hasattr(st, 'column_config') and hasattr(st.column_config, 'ImageColumn'):
+    st.data_editor(
+        data_df,
+        column_config={
+            "apps": st.column_config.ImageColumn(
+                "Preview Image", help="Disease and vaccine images"
+            )
+        },
+        hide_index=True,
+    )
+else:
+    st.error("The current Streamlit version does not support `st.column_config.ImageColumn`. Please upgrade to the latest version.")
+
