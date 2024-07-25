@@ -5,7 +5,6 @@ import streamlit as st
 
 st.title("Diseases and Vaccine recomendation app")
 """
-# Welcome to Diseases and Vaccine recomendation app!
 
 This is a web for Diseases and Vaccine recomendation where all the data is tacked from WHO.
 
