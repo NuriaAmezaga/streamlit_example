@@ -8,6 +8,12 @@ st.markdown("""
 This is a web app for Diseases and Vaccine recommendation where all the data is taken from WHO.
 """)
 
+ 
+df = pd.read_csv("sp.csv")
+st.line_chart(df)
+
+
+
 # Data editor example
 df_commands = pd.DataFrame(
     [
