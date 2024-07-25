@@ -3,14 +3,13 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
+st.title("Diseases and Vaccine recomendation app")
 """
-# Welcome to Streamlit!
+# Welcome to Diseases and Vaccine recomendation app!
 
-Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:.
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
+This is a web for Diseases and Vaccine recomendation where all the data is tacked from WHO.
 
-In the meantime, below is an example of what you can do with just a few lines of code:
+
 """
 
 num_points = st.slider("Number of points in spiral", 1, 10000, 1100)
