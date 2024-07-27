@@ -10,8 +10,10 @@ st.title("Welcome to the Disease Prediction App for adventurous travelers")
 # Markdown
 st.markdown("""
 This is a app for predicting and Disease .
-
 """)
+st.markdown("This app will help you during your trip!!)
+st.sidebar.title( "Disease prediction") 
+
 
 # Loading training data
 url = "https://drive.google.com/file/d/19-xEfVfvART7dM5OgR5yVcrH8KPZ5AaR/view?usp=drive_link"
