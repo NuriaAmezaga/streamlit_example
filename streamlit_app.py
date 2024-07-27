@@ -101,6 +101,7 @@ if st.button("Predict Disease"):
 
     # Display the prediction
     st.write("The predicted disease is:", prediction)
+    st.markdown(f"[Click here for more information about {prediction.capitalize()}]({disease_info_url})", unsafe_allow_html=True)
 
     # Get the description and precautions for the predicted disease
     description = sd[sd['Disease'].str.contains(prediction, case=False)]
@@ -121,7 +122,7 @@ if st.button("Predict Disease"):
         
  
 
-       st.markdown(f"[Click here for more information about {prediction.capitalize()}]({disease_info_url})", unsafe_allow_html=True)
+       
 
       
 
