@@ -35,6 +35,11 @@ sp_url = "https://drive.google.com/file/d/1EkYiH2F7d1wJBETyowUag-7ZBfgT6n-h/view
 sp_path = 'https://drive.google.com/uc?export=download&id=' + sp_url.split('/')[-2]
 sp = pd.read_csv(sp_path)
 
+# Loading dataset
+url = "https://drive.google.com/file/d/193IM3aokK2QLnOG4FLgWy2O3m6GqmNyb/view?usp=drive_link"
+path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
+dataset = pd.read_csv(path)
+
 
 # Splitting the data
 x = training2.drop('prognosis', axis=1)
