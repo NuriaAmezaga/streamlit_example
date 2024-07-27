@@ -136,7 +136,7 @@ if st.button("Predict Disease"):
 st.sidebar.title("Symptom Analysis")
 
 # Generate and display the WordCloud
-wordcloud = WordCloud(background_color='white', width=800, height=800, colormap='plasma').generate_from_frequencies(dataset['Disease'].value_counts())
+wordcloud = WordCloud(background_color='white', width=800, height=800, colormap='cividis').generate_from_frequencies(dataset['Disease'].value_counts())
 plt.figure(figsize=(15, 15))
 plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis('off')
