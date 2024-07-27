@@ -3,5 +3,5 @@ pandas
 streamlit
 scikit-learn
 WordCloud
-plotly.express
-matplotlib.pyplot
+plotly
+matplotlib
