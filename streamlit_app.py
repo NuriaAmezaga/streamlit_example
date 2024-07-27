@@ -12,8 +12,9 @@ st.markdown("""
 This is a app for predicting and Disease .
 """)
 
-st.markdown("This app will help you during your trip!")
+
 st.sidebar.title( "Disease prediction") 
+st.sidebar.title( "Sympton analisis") 
 
 
 # Loading training data
