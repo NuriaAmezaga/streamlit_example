@@ -120,9 +120,7 @@ if st.button("Predict Disease"):
         st.write("No precautions available.")
         
  
-    # Add a button for more information
-    if st.button("Do you need more information about the disease and treatment?"):
-       disease_info_url = f"https://www.who.int/news-room/fact-sheets/detail/{prediction.lower()}"
+
        st.markdown(f"[Click here for more information about {prediction.capitalize()}]({disease_info_url})", unsafe_allow_html=True)
 
       
