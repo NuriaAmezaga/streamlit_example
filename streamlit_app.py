@@ -11,7 +11,8 @@ st.title("Welcome to the Disease Prediction App for adventurous travelers")
 st.markdown("""
 This is a app for predicting and Disease .
 """)
-st.markdown("This app will help you during your trip!!)
+
+st.markdown("This app will help you during your trip!")
 st.sidebar.title( "Disease prediction") 
 
 
