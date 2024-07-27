@@ -15,7 +15,7 @@ This is a app for predicting and Disease .
 
 
 st.sidebar.title( "Disease prediction") 
-st.sidebar.title( "Sympton analisis") 
+
 
 
 # Loading training data
@@ -131,8 +131,14 @@ if st.button("Predict Disease"):
         st.write("No precautions available.")
         
  
+st.sidebar.title( "Sympton analisis") 
+       wordcloud = WordCloud(background_color='black', width=800, height=800).generate_from_frequencies(dataset['Disease'].value_counts())
 
-       
+       plt.figure(figsize=(15,15))
+       plt.imshow(wordcloud, interpolation='bilinear')
+       plt.axis('off')
+       plt.title('Word Cloud of Diseases')
+       plt.show()
 
       
 
