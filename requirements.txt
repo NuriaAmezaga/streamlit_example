@@ -5,3 +5,4 @@ scikit-learn
 WordCloud
 plotly
 matplotlib
+seaborn
