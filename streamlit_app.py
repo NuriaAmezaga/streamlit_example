@@ -132,15 +132,16 @@ if st.button("Predict Disease"):
     else:
         st.write("No precautions available.")
         
- 
-st.sidebar.title( "Sympton analisis") 
-       wordcloud = WordCloud(background_color='black', width=800, height=800).generate_from_frequencies(dataset['Disease'].value_counts())
+# Sidebar title for WordCloud
+st.sidebar.title("Symptom Analysis")
 
-       plt.figure(figsize=(15,15))
-       plt.imshow(wordcloud, interpolation='bilinear')
-       plt.axis('off')
-       plt.title('Word Cloud of Diseases')
-       plt.show()
+# Generate and display the WordCloud
+wordcloud = WordCloud(background_color='black', width=800, height=800).generate_from_frequencies(dataset['Disease'].value_counts())
+plt.figure(figsize=(15, 15))
+plt.imshow(wordcloud, interpolation='bilinear')
+plt.axis('off')
+plt.title('Word Cloud of Diseases')
+st.pyplot(plt)
 
       
 
