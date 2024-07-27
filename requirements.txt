@@ -2,7 +2,4 @@ altair
 pandas
 streamlit
 scikit-learn
-numpy
-plotly.express
-wordcloud
-matplotlib
+
