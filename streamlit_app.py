@@ -143,7 +143,31 @@ plt.axis('off')
 plt.title('Word Cloud of Diseases')
 st.pyplot(plt)
 
+# Sidebar options for visualization
+st.sidebar.markdown("### Symptom Analysis")
+select = st.sidebar.selectbox('Visualization Type', ['Pie Chart', 'Count Plot'], key='selectbox1')
 
+# Create the count of Symptom_1
+symptom_counts = dataset["Symptom_1"].value_counts()
+
+if not st.sidebar.checkbox('Hide', True):
+    st.markdown("### Distribution of Symptom_1")
+
+    if select == "Pie Chart":
+        # Plotly Pie Chart
+        fig = px.pie(
+            names=symptom_counts.index,
+            values=symptom_counts.values,
+            title="Distribution of Symptom_1",
+            color_discrete_sequence=px.colors.qualitative.Paired
+        )
+        st.plotly_chart(fig)
+    else:
+        # Seaborn Count Plot
+        plt.figure(figsize=(20, 15))
+        sns.countplot(y='Symptom_1', data=dataset, palette="bwr")
+        plt.title("Distribution of Symptom_1", fontsize=40)
+        st.pyplot(plt)
 
       
 
