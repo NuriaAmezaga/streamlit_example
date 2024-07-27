@@ -4,3 +4,4 @@ streamlit
 scikit-learn
 WordCloud
 plotly.express
+matplotlib.pyplot
