@@ -143,9 +143,7 @@ plt.axis('off')
 plt.title('Word Cloud of Diseases')
 st.pyplot(plt)
 
-# Histogram and pie of diferent diseases
-st.sidebar.markdown("### Symptoms per disease")
-select= st.sidebar.selectbox("Visualitzation type", 
+
 
       
 
