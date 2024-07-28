@@ -144,7 +144,7 @@ plt.title('Word Cloud of Diseases')
 st.pyplot(plt)
 
 # Just add it after st.sidebar:
-a = st.sidebar.radio('Choose:',[Pie Chart,Count Plot])
+st.sidebar.radio('Choose:'[Pie Chart,Count Plot])
 
 # Sidebar options for visualization
 st.sidebar.markdown("### Symptom Analysis")
