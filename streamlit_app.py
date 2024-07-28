@@ -143,8 +143,6 @@ plt.axis('off')
 plt.title('Word Cloud of Diseases')
 st.pyplot(plt)
 
-# Just add it after st.sidebar:
-st.sidebar.radio('Choose:'[Pie Chart,Count Plot])
 
 # Sidebar options for visualization
 st.sidebar.markdown("### Symptom Analysis")
