@@ -194,7 +194,7 @@ chart_type = st.sidebar.radio("Select Chart Type:", ['Pie Chart', 'Bar Plot'], k
 
 # Debugging: Print the selected disease name and dataset columns
 st.write("Selected Disease:", Disease_name)
-st.write("Dataset Columns:", list(dataset.columns))
+
 
 if Disease_name in dataset.columns:
     # Plot the symptoms for the selected disease
