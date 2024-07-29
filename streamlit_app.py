@@ -241,7 +241,7 @@ video_bytes = video_file.read()
 st.video(video_bytes)
 
 # Description
-st.write("This is a sample video loaded from GitHub.")
+st.write("This is a Intro video")
 
 # GitHub raw content URL and output file name from "Vaccine how it works"-------------------------
 
