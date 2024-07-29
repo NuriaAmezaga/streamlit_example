@@ -145,31 +145,68 @@ plt.title('Word Cloud of Diseases')
 st.pyplot(plt)
 
 
+
+# Load dataset from Google Drive
+url = "https://drive.google.com/file/d/193IM3aokK2QLnOG4FLgWy2O3m6GqmNyb/view?usp=drive_link"
+path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
+dataset = pd.read_csv(path)
+
+# Replace name of diseases
+dataset.rename(columns={
+    "Symptom_1": "Hepatitis",
+    "Symptom_2": "Dengue Fever",
+    "Symptom_3": "Hepatitis",
+    "Symptom_4": "Hepatitis B",
+    "Symptom_5": "Hepatitis C",
+    "Symptom_6": "Cirrhosis",
+    "Symptom_7": "Hypothyroidism",
+    "Symptom_8": "Hepatitis A",
+    "Symptom_9": "Hepatitis-",
+    "Symptom_10": "Yellow Fever",
+    "Symptom_11": "Leptospirosis",
+    "Symptom_12": "Endocarditis",
+    "Symptom_13": "Dengue Fever",
+    "Symptom_14": "Pneumonia",
+    "Symptom_15": "Tuberculosis",
+    "Symptom_16": "COVID-19",
+    "Symptom_17": "Influenza (Flu)"
+}, inplace=True)
+
+# Different diseases list
+different_diseases = ["Hepatitis", "Dengue Fever", "Hepatitis", "Hepatitis B", "Hepatitis C", "Cirrhosis", "Hypothyroidism", 
+                      "Hepatitis A", "Hepatitis", "Yellow Fever", "Leptospirosis", "Endocarditis", "Dengue Fever", "Pneumonia",
+                      "Tuberculosis", "COVID-19", "Influenza (Flu)"]
+
+# Streamlit app
+st.title("Disease Symptom Distribution")
+
 # Sidebar options for visualization
 st.sidebar.markdown("### Symptom Analysis")
-select = st.sidebar.selectbox('Visualization Type', ['Pie Chart', 'Count Plot'], key='selectbox1')
+Disease_name = st.sidebar.selectbox("Please select the disease name:", different_diseases, key='selectbox2')
+chart_type = st.sidebar.radio("Select Chart Type:", ['Pie Chart', 'Bar Plot'], key='selectbox3')
 
-# Create the count of Symptom_1
-symptom_counts = dataset["Symptom_1"].value_counts()
+if Disease_name:
+    # Plot the symptoms for the selected disease
+    symptom_counts = dataset[Disease_name].value_counts()
 
-if not st.sidebar.checkbox('Hide', True):
-    st.markdown("### Distribution of Symptom_1")
+    if not st.sidebar.checkbox('Hide', True, key='checkbox1'):
+        st.markdown(f"### Distribution of {Disease_name}")
 
-    if select == "Pie Chart":
-        # Plotly Pie Chart
-        fig = px.pie(
-            names=symptom_counts.index,
-            values=symptom_counts.values,
-            title="Distribution of Symptom_1",
-            color_discrete_sequence=px.colors.qualitative.Paired
-        )
-        st.plotly_chart(fig)
-    else:
-        # Seaborn Count Plot
-        plt.figure(figsize=(20, 15))
-        sns.countplot(y='Symptom_1', data=dataset, palette="bwr")
-        plt.title("Distribution of Symptom_1", fontsize=40)
-        st.pyplot(plt)
+        if chart_type == "Pie Chart":
+            # Plotly Pie Chart
+            fig = px.pie(
+                names=symptom_counts.index,
+                values=symptom_counts.values,
+                title=f"Distribution of Symptoms for {Disease_name}",
+                color_discrete_sequence=px.colors.qualitative.Paired
+            )
+            st.plotly_chart(fig)
+        else:
+            # Seaborn Count Plot
+            plt.figure(figsize=(20, 15))
+            sns.countplot(y=Disease_name, data=dataset, palette="bwr")
+            plt.title(f"Distribution of Symptoms for {Disease_name}", fontsize=40)
+            st.pyplot(plt)
 
       
 
