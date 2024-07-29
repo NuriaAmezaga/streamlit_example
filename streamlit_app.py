@@ -207,6 +207,7 @@ if Disease_name in dataset.columns:
         fig, ax = plt.subplots(figsize=(20, 15))
         sns.countplot(y=Disease_name, data=dataset, palette="bwr", ax=ax)
         ax.set_title(f"Distribution of Symptoms for {Disease_name}", fontsize=40)
+        ax.tick_params(axis='y', labelsize=15)  # Adjust the label size
         st.pyplot(fig)
 else:
     st.error(f"Disease '{Disease_name}' is not found in the dataset columns.")
