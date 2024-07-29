@@ -240,7 +240,7 @@ video_file = open(output, "rb")
 video_bytes = video_file.read()
 
 # Display the video
-st.video(video_bytes)
+
 st.sidebar.video(video_bytes)
 
 # Description
@@ -262,7 +262,7 @@ video_file2 = open(output2, "rb")
 video_bytes2 = video_file2.read()
 
 # Display the video
-st.video(video_bytes2)
+
 st.sidebar.video(video_bytes2)
 
 # Description
