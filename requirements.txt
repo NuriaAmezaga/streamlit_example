@@ -6,3 +6,4 @@ WordCloud
 plotly
 matplotlib
 seaborn
+requests
