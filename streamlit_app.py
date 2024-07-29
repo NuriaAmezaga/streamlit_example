@@ -6,6 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 from wordcloud import WordCloud
 import plotly.express as px
 import matplotlib.pyplot as plt 
+import seaborn as sns
 
 # Set the title of the app
 st.title("Welcome to the Disease Prediction App for adventurous travelers")
