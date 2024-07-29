@@ -203,11 +203,11 @@ if Disease_name in dataset.columns:
     if not st.sidebar.checkbox('Hide', True, key='checkbox1'):
         st.markdown(f"### Distribution of {Disease_name}")
 
-             # Seaborn Count Plot
-            fig, ax = plt.subplots(figsize=(20, 15))
-            sns.countplot(y=Disease_name, data=dataset, palette="bwr", ax=ax)
-            ax.set_title(f"Distribution of Symptoms for {Disease_name}", fontsize=40)
-            st.pyplot(fig)
+        # Seaborn Count Plot
+        fig, ax = plt.subplots(figsize=(20, 15))
+        sns.countplot(y=Disease_name, data=dataset, palette="bwr", ax=ax)
+        ax.set_title(f"Distribution of Symptoms for {Disease_name}", fontsize=40)
+        st.pyplot(fig)
 else:
     st.error(f"Disease '{Disease_name}' is not found in the dataset columns.")
 
