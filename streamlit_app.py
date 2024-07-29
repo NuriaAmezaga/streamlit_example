@@ -233,7 +233,7 @@ output = 'video_intro.mp4'
 download_video(url, output)
 
 # Title of the app
-st.title("Intro to Vaccine App")
+st.sidebar.title("Intro to Vaccine App")
 
 
 # Load video file
