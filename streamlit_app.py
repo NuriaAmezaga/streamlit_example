@@ -264,41 +264,8 @@ st.video(video_bytes2)
 # Description
 st.write("This is a sample video about how vaccines work.")
 
-import streamlit as st
-import requests
 
-# Function to download the video from a URL
-def download_video(url, output):
-    response = requests.get(url)
-    with open(output, 'wb') as file:
-        file.write(response.content)
 
-# GitHub raw content URL and output file name "Introduction"
-url1 = 'https://github.com/NuriaAmezaga/streamlit_example/raw/main/video%20intro.mp4'
-output1 = 'video_intro.mp4'
-
-# GitHub raw content URL and output file name "Vaccine how it works"
-url2 = 'https://github.com/NuriaAmezaga/streamlit_example/raw/main/how%20vaccine%20works.mp4'
-output2 = 'how_vaccine_works.mp4'
-
-# Download the video files
-download_video(url1, output1)
-download_video(url2, output2)
-
-# Title of the app
-st.title("Video Player")
-
-# Load and display the first video
-video_file1 = open(output1, "rb")
-video_bytes1 = video_file1.read()
-st.video(video_bytes1)
-st.write("This is a sample video loaded from GitHub: Introduction.")
-
-# Load and display the second video
-video_file2 = open(output2, "rb")
-video_bytes2 = video_file2.read()
-st.video(video_bytes2)
-st.write("This is a sample video about how vaccines work.")
 
 
  
