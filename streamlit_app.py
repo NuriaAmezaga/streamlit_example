@@ -190,7 +190,7 @@ st.title("Disease Symptom Distribution")
 # Sidebar options for visualization
 st.sidebar.markdown("### Symptom Analysis")
 Disease_name = st.sidebar.selectbox("Please select the disease name:", different_diseases, key='selectbox2')
-chart_type = st.sidebar.radio("Select Chart Type:", ['Pie Chart', 'Bar Plot'], key='selectbox3')
+
 
 # Debugging: Print the selected disease name and dataset columns
 st.write("Selected Disease:", Disease_name)
@@ -203,17 +203,7 @@ if Disease_name in dataset.columns:
     if not st.sidebar.checkbox('Hide', True, key='checkbox1'):
         st.markdown(f"### Distribution of {Disease_name}")
 
-       if chart_type == "Pie Chart":
-            # Matplotlib Pie Chart
-            fig, ax = plt.subplots(figsize=(15, 10))
-            colors = plt.cm.Paired(range(len(symptom_counts)))
-            ax.pie(symptom_counts, labels=symptom_counts.index, colors=colors, autopct='%1.1f%%', startangle=140)
-            ax.set_title(f"Distribution of Symptoms for {Disease_name}", fontsize=15, color="red")
-            ax.axis("equal")
-            st.pyplot(fig)
-            
-        else:
-            # Seaborn Count Plot
+             # Seaborn Count Plot
             fig, ax = plt.subplots(figsize=(20, 15))
             sns.countplot(y=Disease_name, data=dataset, palette="bwr", ax=ax)
             ax.set_title(f"Distribution of Symptoms for {Disease_name}", fontsize=40)
