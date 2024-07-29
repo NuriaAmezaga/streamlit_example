@@ -204,14 +204,15 @@ if Disease_name in dataset.columns:
         st.markdown(f"### Distribution of {Disease_name}")
 
         if chart_type == "Pie Chart":
-            # Plotly Pie Chart
+            
             fig = px.pie(
-                names=symptom_counts.index,
                 values=symptom_counts.values,
+                names=symptom_counts.index,
                 title=f"Distribution of Symptoms for {Disease_name}",
                 color_discrete_sequence=px.colors.qualitative.Paired
             )
             st.plotly_chart(fig)
+            
         else:
             # Seaborn Count Plot
             fig, ax = plt.subplots(figsize=(20, 15))
