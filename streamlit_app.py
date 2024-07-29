@@ -145,6 +145,11 @@ plt.title('Word Cloud of Diseases')
 st.pyplot(plt)
 
 
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import streamlit as st
+import plotly.express as px
 
 # Load dataset from Google Drive
 url = "https://drive.google.com/file/d/193IM3aokK2QLnOG4FLgWy2O3m6GqmNyb/view?usp=drive_link"
@@ -173,9 +178,11 @@ dataset.rename(columns={
 }, inplace=True)
 
 # Different diseases list
-different_diseases = ["Hepatitis", "Dengue Fever", "Malaria", "Hepatitis B", "Hepatitis C", "Cirrhosis", "Hypothyroidism", 
-                      "Hepatitis A", "Hepatitis", "Yellow Fever", "Leptospirosis", "Endocarditis", "Dengue Fever", "Pneumonia",
-                      "Tuberculosis", "COVID-19", "Influenza (Flu)"]
+different_diseases = list(set([
+    "Hepatitis", "Dengue Fever", "Malaria", "Hepatitis B", "Hepatitis C", "Cirrhosis", "Hypothyroidism", 
+    "Hepatitis A", "Hepatitis", "Yellow Fever", "Leptospirosis", "Endocarditis", "Dengue Fever", "Pneumonia",
+    "Tuberculosis", "COVID-19", "Influenza (Flu)"
+]))
 
 # Streamlit app
 st.title("Disease Symptom Distribution")
@@ -185,7 +192,11 @@ st.sidebar.markdown("### Symptom Analysis")
 Disease_name = st.sidebar.selectbox("Please select the disease name:", different_diseases, key='selectbox2')
 chart_type = st.sidebar.radio("Select Chart Type:", ['Pie Chart', 'Bar Plot'], key='selectbox3')
 
-if Disease_name:
+# Debugging: Print the selected disease name and dataset columns
+st.write("Selected Disease:", Disease_name)
+st.write("Dataset Columns:", list(dataset.columns))
+
+if Disease_name in dataset.columns:
     # Plot the symptoms for the selected disease
     symptom_counts = dataset[Disease_name].value_counts()
 
@@ -203,10 +214,13 @@ if Disease_name:
             st.plotly_chart(fig)
         else:
             # Seaborn Count Plot
-            plt.figure(figsize=(20, 15))
-            sns.countplot(y=Disease_name, data=dataset, palette="bwr")
-            plt.title(f"Distribution of Symptoms for {Disease_name}", fontsize=40)
-            st.pyplot(plt)
+            fig, ax = plt.subplots(figsize=(20, 15))
+            sns.countplot(y=Disease_name, data=dataset, palette="bwr", ax=ax)
+            ax.set_title(f"Distribution of Symptoms for {Disease_name}", fontsize=40)
+            st.pyplot(fig)
+else:
+    st.error(f"Disease '{Disease_name}' is not found in the dataset columns.")
+
 
       
 
