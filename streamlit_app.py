@@ -214,8 +214,10 @@ else:
     st.error(f"Disease '{Disease_name}' is not found in the dataset columns.")
 
 
+# Sidebar title for Videos
+st.sidebar.title("Videos")
 
-import requests
+
 
 # Function to download the video from a URL
 def download_video(url, output):
