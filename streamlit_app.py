@@ -215,7 +215,7 @@ else:
 
 
 # Sidebar title for Videos
-st.sidebar.title("Videos")
+st.title("Videos")
 
 
 
@@ -233,7 +233,7 @@ output = 'video_intro.mp4'
 download_video(url, output)
 
 # Title of the app
-st.sidebar.sidebar("Intro to Vaccine App")
+st.title("Intro to Vaccine App")
 
 
 # Load video file
