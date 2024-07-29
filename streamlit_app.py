@@ -7,6 +7,7 @@ from wordcloud import WordCloud
 import plotly.express as px
 import matplotlib.pyplot as plt 
 import seaborn as sns
+import requests
 
 # Set the title of the app
 st.title("Welcome to the Disease Prediction App for adventurous travelers")
@@ -213,7 +214,35 @@ else:
     st.error(f"Disease '{Disease_name}' is not found in the dataset columns.")
 
 
-      
+
+import requests
+
+# Function to download the video from a URL
+def download_video(url, output):
+    response = requests.get(url)
+    with open(output, 'wb') as file:
+        file.write(response.content)
+
+# GitHub raw content URL and output file name
+url = 'https://github.com/NuriaAmezaga/streamlit_example/raw/main/video%20intro.mp4'  # Replace with your actual GitHub raw link
+output = 'video_intro.mp4'
+
+# Download the video file
+download_video(url, output)
+
+# Title of the app
+st.title("Video Player")
+
+# Load video file
+video_file = open(output, "rb")
+video_bytes = video_file.read()
+
+# Display the video
+st.video(video_bytes)
+
+# Description
+st.write("This is a sample video loaded from GitHub.")
+
 
  
 
