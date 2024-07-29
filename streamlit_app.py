@@ -203,15 +203,14 @@ if Disease_name in dataset.columns:
     if not st.sidebar.checkbox('Hide', True, key='checkbox1'):
         st.markdown(f"### Distribution of {Disease_name}")
 
-        if chart_type == "Pie Chart":
-            
-            fig = px.pie(
-                values=symptom_counts.values,
-                names=symptom_counts.index,
-                title=f"Distribution of Symptoms for {Disease_name}",
-                color_discrete_sequence=px.colors.qualitative.Paired
-            )
-            st.plotly_chart(fig)
+       if chart_type == "Pie Chart":
+            # Matplotlib Pie Chart
+            fig, ax = plt.subplots(figsize=(15, 10))
+            colors = plt.cm.Paired(range(len(symptom_counts)))
+            ax.pie(symptom_counts, labels=symptom_counts.index, colors=colors, autopct='%1.1f%%', startangle=140)
+            ax.set_title(f"Distribution of Symptoms for {Disease_name}", fontsize=15, color="red")
+            ax.axis("equal")
+            st.pyplot(fig)
             
         else:
             # Seaborn Count Plot
