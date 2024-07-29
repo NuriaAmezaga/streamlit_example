@@ -241,6 +241,7 @@ video_bytes = video_file.read()
 
 # Display the video
 st.video(video_bytes)
+st.sidebar.video(video_bytes)
 
 # Description
 st.write("This is a Intro video")
@@ -262,6 +263,7 @@ video_bytes2 = video_file2.read()
 
 # Display the video
 st.video(video_bytes2)
+st.sidebar.video(video_bytes2)
 
 # Description
 st.write("This is a sample video about how vaccines work.")
