@@ -233,7 +233,8 @@ output = 'video_intro.mp4'
 download_video(url, output)
 
 # Title of the app
-st.title("Intro to Vaccine App")
+st.sidebar("Intro to Vaccine App")
+
 
 # Load video file
 video_file = open(output, "rb")
@@ -255,7 +256,7 @@ output2 = 'how_vaccine_works.mp4'
 download_video(url2, output2)
 
 # Title of the app
-st.title("How vaccines are working")
+st.sidebar("How vaccines are working")
 
 # Load video file
 video_file2 = open(output2, "rb")
