@@ -155,7 +155,7 @@ dataset = pd.read_csv(path)
 dataset.rename(columns={
     "Symptom_1": "Hepatitis",
     "Symptom_2": "Dengue Fever",
-    "Symptom_3": "Hepatitis",
+    "Symptom_3": "Malaria",
     "Symptom_4": "Hepatitis B",
     "Symptom_5": "Hepatitis C",
     "Symptom_6": "Cirrhosis",
@@ -173,7 +173,7 @@ dataset.rename(columns={
 }, inplace=True)
 
 # Different diseases list
-different_diseases = ["Hepatitis", "Dengue Fever", "Hepatitis", "Hepatitis B", "Hepatitis C", "Cirrhosis", "Hypothyroidism", 
+different_diseases = ["Hepatitis", "Dengue Fever", "Malaria", "Hepatitis B", "Hepatitis C", "Cirrhosis", "Hypothyroidism", 
                       "Hepatitis A", "Hepatitis", "Yellow Fever", "Leptospirosis", "Endocarditis", "Dengue Fever", "Pneumonia",
                       "Tuberculosis", "COVID-19", "Influenza (Flu)"]
 
