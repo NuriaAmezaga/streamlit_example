@@ -223,7 +223,7 @@ def download_video(url, output):
     with open(output, 'wb') as file:
         file.write(response.content)
 
-# GitHub raw content URL and output file name
+# GitHub raw content URL and output file name "Introduction"-----------------------------------
 url = 'https://github.com/NuriaAmezaga/streamlit_example/raw/main/video%20intro.mp4'  # Replace with your actual GitHub raw link
 output = 'video_intro.mp4'
 
@@ -243,6 +243,26 @@ st.video(video_bytes)
 # Description
 st.write("This is a sample video loaded from GitHub.")
 
+# GitHub raw content URL and output file name from "Vaccine how it works"-------------------------
+
+url2 = 'https://github.com/NuriaAmezaga/streamlit_example/raw/main/how%20vaccine%20works.mp4'  # Actual GitHub raw link
+output2 = 'how_vaccine_works.mp4'
+
+# Download the video file
+download_video(url2, output2)
+
+# Title of the app
+st.title("how it works")
+
+# Load video file
+video_file2 = open(output2, "rb")
+video_bytes2 = video_file2.read()
+
+# Display the video
+st.video(video_bytes2)
+
+# Description
+st.write("This is a sample video about how vaccines work.")
 
  
 
