@@ -187,7 +187,7 @@ different_diseases = list(set([
 
 
 # Sidebar options for visualization
-st.sidebar.markdown("### Symptom Analysis")
+
 Disease_name = st.sidebar.selectbox("Please select the disease name:", different_diseases, key='selectbox2')
 
 
