@@ -10,15 +10,14 @@ import seaborn as sns
 import requests
 
 # Set the title of the app
-st.title("Welcome to the Disease Prediction App for adventurous travelers")
+st.title("APP-VACCINES")
 
 # Markdown
 st.markdown("""
-This is a app for predicting and Disease .
+Disease Prediction App
+
+Predict diseases using health data and symptoms with advanced machine learning for accurate, timely predictions and early diagnosis.
 """)
-
-
-st.sidebar.title( "Disease prediction") 
 
 
 
@@ -134,7 +133,7 @@ if st.button("Predict Disease"):
     else:
         st.write("No precautions available.")
         
-# Sidebar title for WordCloud
+# Sidebar title Symptom Analysis
 st.sidebar.title("Symptom Analysis")
 
 # Generate and display the WordCloud
@@ -185,8 +184,7 @@ different_diseases = list(set([
     "Tuberculosis", "COVID-19", "Influenza (Flu)"
 ]))
 
-# Streamlit app
-st.title("Disease Symptom Distribution")
+
 
 # Sidebar options for visualization
 st.sidebar.markdown("### Symptom Analysis")
@@ -213,9 +211,6 @@ if Disease_name in dataset.columns:
 else:
     st.error(f"Disease '{Disease_name}' is not found in the dataset columns.")
 
-
-# Sidebar title for Videos
-st.title("Videos")
 
 
 
