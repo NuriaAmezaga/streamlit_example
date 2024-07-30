@@ -205,10 +205,9 @@ if Disease_name in dataset.columns:
 
 
         # Seaborn Count Plot
-        custom_palette = ["#3498db", "#e74c3c", "#2ecc71", "#f1c40f"]
-
+       
         fig, ax = plt.subplots(figsize=(20, 15))
-        sns.countplot(y=Disease_name, data=dataset, palette="#3498db", ax=ax)
+        sns.countplot(y=Disease_name, data=dataset, palette="bwr", ax=ax)
         ax.set_title(f"Distribution of Symptoms for {Disease_name}", fontsize=40)
         ax.tick_params(axis='y', labelsize=15)  # Adjust the label size
         st.pyplot(fig)
