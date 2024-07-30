@@ -239,8 +239,7 @@ video_bytes = video_file.read()
 
 st.sidebar.video(video_bytes)
 
-# Description
-st.write("This is a Intro video")
+
 
 # GitHub raw content URL and output file name from "Vaccine how it works"-------------------------
 
@@ -261,8 +260,7 @@ video_bytes2 = video_file2.read()
 
 st.sidebar.video(video_bytes2)
 
-# Description
-st.write("This is a sample video about how vaccines work.")
+
 
 
 
