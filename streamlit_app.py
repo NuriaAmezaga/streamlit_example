@@ -202,8 +202,6 @@ if Disease_name in dataset.columns:
     if not st.sidebar.checkbox('Hide', True, key='checkbox1'):
         st.markdown(f"### Distribution of {Disease_name}")
 
-        # Example custom color palette
-custom_palette = ["#3498db", "#e74c3c", "#2ecc71", "#f1c40f"]
 
 
         # Seaborn Count Plot
