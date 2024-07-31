@@ -105,7 +105,7 @@ for symptom in selected_symptoms:
         df_user.loc[0, symptom] = 1
 
 # Display the updated DataFrame
-st.dataframe(df_user)
+
 
 # Predict button
 if st.button("Predict Disease"):
