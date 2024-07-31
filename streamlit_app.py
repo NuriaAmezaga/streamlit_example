@@ -318,6 +318,58 @@ st.sidebar.write("Most frequent question:")
 st.sidebar.dataframe(df_extracted)
 
 
+# # # # # # # # # # # # # # # # # # 
+import streamlit as st
+import pandas as pd
+
+# URL to the CSV file on Google Drive
+url = "https://drive.google.com/file/d/1Y0zj8DrGIY8-BkaAMt41Vu7kqtnnnrIy/view?usp=sharing"
+path = "https://drive.google.com/uc?export=download&id=" + url.split("/")[-2]
+
+# Load the DataFrame from the Google Drive URL
+df_extracted = pd.read_csv(path)
+
+# Sidebar input for user query
+st.sidebar.title("FAQ Finder")
+
+# Display the entire DataFrame in the main page with improved formatting
+st.sidebar.write("Most frequent questions:")
+# Display only the relevant columns and use the Styler for better formatting
+st.sidebar.dataframe(df_extracted[['question', 'answer', 'url']].style.set_properties(**{'text-align': 'left'}).set_table_styles([{
+    'selector': 'th',
+    'props': [('text-align', 'left')]
+}]))
+
+# Text input for user query
+user_query = st.sidebar.text_input("More information?", "")
+
+# Filter the DataFrame based on the user query
+if user_query:
+    filtered_by_questions = df_extracted[df_extracted['question'].str.contains(user_query, case=False, na=False)]
+    
+    # Display the filtered results in the sidebar
+    if not filtered_by_questions.empty:
+        st.sidebar.write(f"**Found {len(filtered_by_questions)} matching questions:**")
+        for index, row in filtered_by_questions.iterrows():
+            st.sidebar.write(f"**Question:** {row['question']}")
+            st.sidebar.write(f"**Answer:** {row['answer']}")
+            st.sidebar.write(f"**Source URL:** {row['url']}")
+            st.sidebar.write("---")
+    else:
+        st.sidebar.write("No matching questions found.")
+else:
+    st.sidebar.write("Type a question to search for answers.")
+
+# Optional: Display the entire DataFrame on the main page
+st.write("Here is the complete dataset for reference:")
+st.dataframe(df_extracted.style.set_properties(**{'text-align': 'left'}).set_table_styles([{
+    'selector': 'th',
+    'props': [('text-align', 'left')]
+}]))
+
+# Run the Streamlit app
+# Save this script as app.py and run it using: streamlit run app.py
+
 
 
 
