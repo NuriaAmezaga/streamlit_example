@@ -309,10 +309,9 @@ path = "https://drive.google.com/uc?export=download&id=" + url.split("/")[-2]
 df_extracted = pd.read_csv(path)
 
 
-
 # Sidebar input for user query
 st.sidebar.title("FAQ Finder")
-     
+    
 
 # Optional: Display the entire DataFrame in the main page
 st.sidebar.write("Most frequent question:")
