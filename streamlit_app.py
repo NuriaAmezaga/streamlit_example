@@ -264,14 +264,11 @@ video_bytes2 = video_file2.read()
 st.sidebar.video(video_bytes2)
 
 
-###### new
+###### 31.07.2024
+
 from PIL import Image
 
-import streamlit as st
-import pandas as pd
-from PIL import Image
-
-# Load your DataFrame containing image paths
+# Load  DataFrame containing image paths, i think is not needed... just the image_url
 # Replace with your actual DataFrame containing image URLs
 image_data = {
     'image_urls': [
@@ -302,8 +299,7 @@ with col3:
     if st.button("Next"):
         st.session_state.slideshow_index = (st.session_state.slideshow_index + 1) % len(df_images)
 
-# Run the Streamlit app
-# Save this script as app.py and run it using: streamlit run app.py
+
 
 
 
