@@ -315,7 +315,7 @@ st.sidebar.title("FAQ Finder")
 
 # Optional: Display the entire DataFrame in the main page
 st.sidebar.write("Most frequent question:")
-st.dataframe(df_extracted)
+st.sidebar.dataframe(df_extracted)
 
 
 
