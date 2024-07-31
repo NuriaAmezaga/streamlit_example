@@ -264,6 +264,48 @@ video_bytes2 = video_file2.read()
 st.sidebar.video(video_bytes2)
 
 
+###### new
+from PIL import Image
+
+import streamlit as st
+import pandas as pd
+from PIL import Image
+
+# Load your DataFrame containing image paths
+# For demonstration purposes, we'll create a sample DataFrame
+data = {
+    'image_paths': [
+        'https://vaccination-info.europa.eu/sites/default/files/styles/is_large/public/images/Chickenpox1.png?itok=MhbkWZxr',  # Replace with your actual image paths or URLs
+        'https://vaccination-info.europa.eu/sites/default/files/styles/is_large/public/images/child-getting-vaccinated_0.png?itok=X3QhfAqj',
+        'https://vaccination-info.europa.eu/sites/default/files/styles/is_large/public/images/vaccination-baby-illustration.jpg?itok=ViGMYXKo'
+    ]
+}
+df = pd.DataFrame(data)
+
+# Streamlit app
+st.title("Image Slideshow")
+
+# Initialize session state for the slideshow index
+if 'slideshow_index' not in st.session_state:
+    st.session_state.slideshow_index = 0
+
+# Display the current image
+current_image_path = df['image_paths'].iloc[st.session_state.slideshow_index]
+image = Image.open(current_image_path)
+st.image(image, caption=f"Image {st.session_state.slideshow_index + 1}/{len(df)}", use_column_width=True)
+
+# Create buttons for navigation
+col1, col2, col3 = st.columns([1, 1, 1])
+with col1:
+    if st.button("Previous"):
+        st.session_state.slideshow_index = (st.session_state.slideshow_index - 1) % len(df)
+with col3:
+    if st.button("Next"):
+        st.session_state.slideshow_index = (st.session_state.slideshow_index + 1) % len(df)
+
+# Run the Streamlit app
+# Save this script as app.py and run it using: streamlit run app.py
+
 
 
 
