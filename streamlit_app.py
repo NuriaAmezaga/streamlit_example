@@ -276,8 +276,8 @@ from PIL import Image
 image_data = {
     'image_urls': [
         'https://vaccination-info.europa.eu/sites/default/files/styles/is_large/public/images/Chickenpox1.png?itok=MhbkWZxr',  # Replace with correct URLs
-        'https://vaccination-info.europa.eu/sites/default/files/styles/is_large/public/images/Diphtheria1.png?itok=4XGb6Fdy',
-        'https://vaccination-info.europa.eu/sites/default/files/styles/is_large/public/images/Hib1.png?itok=Nh0cBBml'
+        'https://vaccination-info.europa.eu/sites/default/files/styles/is_large/public/images/vaccination-baby-illustration.jpg?itok=ViGMYXKo',
+        'https://vaccination-info.europa.eu/sites/default/files/styles/is_large/public/images/Nausea-evip-smaller.png?itok=hyLVyGBu'
     ]
 }
 df_images = pd.DataFrame(image_data)
