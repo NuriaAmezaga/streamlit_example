@@ -308,32 +308,14 @@ path = "https://drive.google.com/uc?export=download&id=" + url.split("/")[-2]
 # Load the DataFrame from the Google Drive URL
 df_extracted = pd.read_csv(path)
 
-# Streamlit app
-st.title("FAQ Finder")
+
 
 # Sidebar input for user query
-st.sidebar.title("Ask a Question")
-user_query = st.sidebar.text_input("More information?", "")
-
-# Filter the DataFrame based on the user query
-if user_query:
-    filtered_by_questions = df_extracted[df_extracted['question'].str.contains(user_query, case=False, na=False)]
-    
-    # Display the filtered results in the sidebar
-    if not filtered_by_questions.empty:
-        st.sidebar.write(f"**Found {len(filtered_by_questions)} matching questions:**")
-        for index, row in filtered_by_questions.iterrows():
-            st.sidebar.write(f"**Question:** {row['question']}")
-            st.sidebar.write(f"**Answer:** {row['answer']}")
-            st.sidebar.write(f"**Source URL:** {row['url']}")
-            st.sidebar.write("---")
-    else:
-        st.sidebar.write("No matching questions found.")
-else:
-    st.sidebar.write("Type a question to search for answers.")
+st.sidebar.title("FAQ Finder")
+     
 
 # Optional: Display the entire DataFrame in the main page
-st.write("Here is the complete dataset for reference:")
+st.sidebar.write("Most frequent question:")
 st.dataframe(df_extracted)
 
 
