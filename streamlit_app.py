@@ -300,27 +300,10 @@ with col3:
         st.session_state.slideshow_index = (st.session_state.slideshow_index + 1) % len(df_images)
 
 
-# URL to the CSV file on Google Drive ##########
-
-url = "https://drive.google.com/file/d/1Y0zj8DrGIY8-BkaAMt41Vu7kqtnnnrIy/view?usp=sharing"
-path = "https://drive.google.com/uc?export=download&id=" + url.split("/")[-2]
-
-# Load the DataFrame from the Google Drive URL
-df_extracted = pd.read_csv(path)
-
-
-# Sidebar input for user query
-st.sidebar.title("FAQ Finder")
-    
-
-# Optional: Display the entire DataFrame in the main page
-st.sidebar.write("Most frequent question:")
-st.sidebar.dataframe(df_extracted)
 
 
 # # # # # # # # # # # # # # # # # # 
-import streamlit as st
-import pandas as pd
+
 
 # URL to the CSV file on Google Drive
 url = "https://drive.google.com/file/d/1Y0zj8DrGIY8-BkaAMt41Vu7kqtnnnrIy/view?usp=sharing"
@@ -332,16 +315,9 @@ df_extracted = pd.read_csv(path)
 # Sidebar input for user query
 st.sidebar.title("FAQ Finder")
 
-# Display the entire DataFrame in the main page with improved formatting
-st.sidebar.write("Most frequent questions:")
-# Display only the relevant columns and use the Styler for better formatting
-st.sidebar.dataframe(df_extracted[['question', 'answer', 'url']].style.set_properties(**{'text-align': 'left'}).set_table_styles([{
-    'selector': 'th',
-    'props': [('text-align', 'left')]
-}]))
 
 # Text input for user query
-user_query = st.sidebar.text_input("More information?", "")
+user_query = st.sidebar.text_input("Do you need more information?", "")
 
 # Filter the DataFrame based on the user query
 if user_query:
@@ -367,8 +343,7 @@ st.dataframe(df_extracted.style.set_properties(**{'text-align': 'left'}).set_tab
     'props': [('text-align', 'left')]
 }]))
 
-# Run the Streamlit app
-# Save this script as app.py and run it using: streamlit run app.py
+
 
 
 
