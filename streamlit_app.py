@@ -333,15 +333,6 @@ if user_query:
             st.sidebar.write("---")
     else:
         st.sidebar.write("No matching questions found.")
-else:
-    st.sidebar.write("Type a question to search for answers.")
-
-# Optional: Display the entire DataFrame on the main page
-st.write("Here is the complete dataset for reference:")
-st.dataframe(df_extracted.style.set_properties(**{'text-align': 'left'}).set_table_styles([{
-    'selector': 'th',
-    'props': [('text-align', 'left')]
-}]))
 
 
 
