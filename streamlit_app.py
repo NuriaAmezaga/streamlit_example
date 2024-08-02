@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import requests
 
-# Set the title of the app
+#  title of the app
 st.title("APP-VACCINES")
 
 # Markdown
@@ -104,8 +104,6 @@ for symptom in selected_symptoms:
     if symptom in df_user.columns:
         df_user.loc[0, symptom] = 1
 
-# Display the updated DataFrame
-
 
 # Predict button
 if st.button("Predict Disease"):
@@ -191,7 +189,7 @@ different_diseases = list(set([
 Disease_name = st.sidebar.selectbox("Please select the disease name:", different_diseases, key='selectbox2')
 
 
-# Debugging: Print the selected disease name and dataset columns
+# Print the selected disease name and dataset columns
 st.write("Selected Disease:", Disease_name)
 
 
@@ -269,7 +267,7 @@ st.sidebar.video(video_bytes2)
 from PIL import Image
 
 # Load  DataFrame containing image paths, i think is not needed... just the image_url
-# Replace with your actual DataFrame containing image URLs
+# Replace with  actual DataFrame containing image URLs
 image_data = {
     'image_urls': [
         'https://vaccination-info.europa.eu/sites/default/files/styles/is_large/public/images/Chickenpox1.png?itok=MhbkWZxr',  # Replace with correct URLs
@@ -309,7 +307,7 @@ with col3:
 url = "https://drive.google.com/file/d/1Y0zj8DrGIY8-BkaAMt41Vu7kqtnnnrIy/view?usp=sharing"
 path = "https://drive.google.com/uc?export=download&id=" + url.split("/")[-2]
 
-# Load the DataFrame from the Google Drive URL
+# Load the DataFrame from the Google Drive 
 df_extracted = pd.read_csv(path)
 
 # Sidebar input for user query
